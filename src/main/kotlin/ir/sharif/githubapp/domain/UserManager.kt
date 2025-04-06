@@ -1,13 +1,21 @@
 package ir.sharif.githubapp.domain
 
-import ir.sharif.githubapp.data.UserRepository
+import ir.sharif.githubapp.data.IUserRepository
+import ir.sharif.githubapp.data.JsonFileUserRepository
+import ir.sharif.githubapp.data.InMemoryUserRepository
 import ir.sharif.githubapp.model.GitHubRepository
 import ir.sharif.githubapp.model.GitHubUser
 import ir.sharif.githubapp.network.GitHubApiClient
 import retrofit2.Response
 
+const val CACHE_POLICY = "FILE" // or "MEMORY"
+
 class UserManager {
-    private val userRepository = UserRepository()
+
+    private val userRepository: IUserRepository = when(CACHE_POLICY){
+        "FILE" -> JsonFileUserRepository()
+        else -> InMemoryUserRepository()
+    }
 
     /**
      * Fetches user data from cache if present, otherwise makes an API call,

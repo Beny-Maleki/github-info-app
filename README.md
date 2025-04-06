@@ -16,11 +16,6 @@ A Kotlin-based terminal application that retrieves and caches GitHub user inform
 5. **Exit**
     - Exits the CLI.
 
-## Prerequisites
-
-- Java 8+ (JDK)
-- Maven 3.x+
-- Kotlin (the Maven `kotlin-maven-plugin` is already included)
 
 ## How to Build and Run
 
