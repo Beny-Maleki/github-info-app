@@ -16,6 +16,7 @@ A Kotlin-based terminal application that retrieves and caches GitHub user inform
 5. **Exit**
     - Exits the CLI.
 
+Note: Cache policy can be changed inside the code. Default policy is FILE which saves each user in a separate `.json` file. 
 
 ## How to Build and Run
 
